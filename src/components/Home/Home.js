@@ -1,17 +1,18 @@
 import { useDispatch, useSelector } from "react-redux";
-import styled from "styled-components";
-import ImgSlider from "./ImgSlider";
-import NewDisney from "./NewDisney";
-import Originals from "./Originals";
-import Recommends from "./Recommends";
-import Trending from "./Trending";
-import Viewers from "./Viewers";
+import ImgSlider from "./components/Slider/ImgSlider";
+import NewDisney from "./components/Category/NewDisney";
+import Originals from "./components/Category/Originals";
+import Recommends from "./components/Category/Recommends";
+import Trending from "./components/Category/Trending";
+import Viewers from "./components/Viewers/Viewers";
 
-import db from "../firebase";
-import { setMovies } from "../features/movie/movieSlice";
-import { selectUserName } from "../features/user/userSlice";
+import db from "../../firebase";
+import { setMovies } from "../../features/movie/movieSlice";
+import { selectUserName } from "../../features/user/userSlice";
 import { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
+
+import styles from "./Home.module.scss"
 
 function Home() {
   const dispatch = useDispatch();
@@ -59,34 +60,15 @@ function Home() {
     getData();
   }, [userName]);
   return (
-    <Container>
+    <div className={`${styles.container}`}>
       <ImgSlider />
       <Viewers />
       <Recommends />
       <NewDisney />
       <Originals />
       <Trending />
-    </Container>
+    </div>
   );
 }
-
-const Container = styled.main`
-  position: relative;
-  min-height: calc(100vh - 250px);
-  overflow-x: hidden;
-  display: block;
-  top: 72px;
-  padding: 0 calc(3.5vw + 5px);
-
-  &:after {
-    background: url("/images/home-background.png") center center / cover
-      no-repeat fixed;
-    content: "";
-    position: absolute;
-    inset: 0px;
-    opacity: 1;
-    z-index: -1;
-  }
-`;
 
 export default Home;
