@@ -66,7 +66,7 @@ const Detail = (props) => {
                 <img alt="" src="/images/play-icon-white.png" />
                 <span>Trailer</span>
               </button>
-              <div className={`${styles.addList}`}>
+              {/* <div className={`${styles.addList}`}>
                 <span />
                 <span />
               </div>
@@ -74,7 +74,7 @@ const Detail = (props) => {
                 <div>
                   <img src="/images/group-icon.png" alt="" />
                 </div>
-              </div>
+              </div> */}
             </div>
             <dic className={`${styles.subTitle}`}>{detailData.subTitle}</dic>
             <div className={`${styles.description}`}>{detailData.description}</div>
