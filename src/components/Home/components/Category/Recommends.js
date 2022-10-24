@@ -9,7 +9,7 @@ function Recommends() {
 
   return (
     <div className={`${styles.container}`}>
-      <h4>New Disney</h4>
+      <h4>Recommends</h4>
       <div className={`${styles.content}`}>
         {movies &&
           movies.map((movie, key) => {

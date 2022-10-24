@@ -3,9 +3,10 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import db from "../../firebase";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 import ReactPlayer from "react-player";
 import { Box, Modal } from "@mui/material";
+import Tooltip from '@mui/material/Tooltip';
 import styles from "./Detail.module.scss";
 
 const Detail = (props) => {
@@ -15,6 +16,8 @@ const Detail = (props) => {
 
   const [open, setOpen] = useState(false);
   const [play, setPlay] = useState(false);
+  const [isAdd, setIsAdd] = useState(false)
+
   const handleOpen = () => setOpen(true);
   const handleClose = () => {
     setOpen(false);
@@ -27,10 +30,24 @@ const Detail = (props) => {
 
     if (docSnap.exists()) {
       setDetailData(docSnap.data());
+      setIsAdd(docSnap.data().watchList)
     } else {
       // doc.data() will be undefined in this case
       console.log("No such document!");
     }
+  }
+
+  // async function addDataToList() {
+  //   await setDoc(doc(db, "watchList", id), {
+  //     ...detailData
+  //   });
+  // }
+
+  async function updateData() {
+    await updateDoc(doc(db, "movies", id), {
+      watchList: !isAdd
+    });
+    setIsAdd(!isAdd)
   }
 
   useEffect(() => {
@@ -38,12 +55,17 @@ const Detail = (props) => {
   }, [id]);
 
   const handleClickPlay = () => {
-    navigate(`/watch/` + id)
+    navigate(`/watch/` + id);
   };
   const handleClickTrailer = () => {
-    setOpen(true)
-    setPlay(true)
+    setOpen(true);
+    setPlay(true);
   };
+
+  const handleAddList = () => {
+    updateData()
+  };
+
   return (
     <div className={`${styles.container}`}>
       {detailData && (
@@ -62,22 +84,29 @@ const Detail = (props) => {
                 <img src="/images/play-icon-black.png" alt="" />
                 <span>Play</span>
               </button>
-              <button className={`${styles.trailer}`} onClick={handleClickTrailer}>
+              <button
+                className={`${styles.trailer}`}
+                onClick={handleClickTrailer}
+              >
                 <img alt="" src="/images/play-icon-white.png" />
                 <span>Trailer</span>
               </button>
-              {/* <div className={`${styles.addList}`}>
-                <span />
-                <span />
-              </div>
-              <div className={`${styles.groupWatch}`}>
+              <Tooltip title={isAdd ? "Remove from watch list" : "Add to watch list"} placement="top">
+                <div className={`${isAdd ? styles.removeList : styles.addList}`} onClick={handleAddList}>
+                  <span />
+                  <span />
+                </div>
+              </Tooltip>
+              {/* <div className={`${styles.groupWatch}`}>
                 <div>
                   <img src="/images/group-icon.png" alt="" />
                 </div>
               </div> */}
             </div>
             <dic className={`${styles.subTitle}`}>{detailData.subTitle}</dic>
-            <div className={`${styles.description}`}>{detailData.description}</div>
+            <div className={`${styles.description}`}>
+              {detailData.description}
+            </div>
           </div>
           <Modal
             open={open}

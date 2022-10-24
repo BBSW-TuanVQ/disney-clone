@@ -138,11 +138,11 @@
                 align-items: center;
                 background-color: rgba(0, 0, 0, 0.6);
                 border-radius: 50%;
-                border: 2px solid white;
+                border: 2px solid green;
                 cursor: pointer;
 
                 span {
-                    background-color: rgb(249, 249, 249);
+                    background-color: green;
                     display: inline-block;
 
                     &:first-child {
@@ -156,6 +156,40 @@
                         transform: translateX(-8px) rotate(0deg);
                         width: 2px;
                     }
+                }
+
+                &:hover {
+                    background: rgb(198, 198, 198);
+                }
+            }
+
+            .removeList {
+                margin-right: 16px;
+                height: 44px;
+                width: 44px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: rgba(0, 0, 0, 0.6);
+                border-radius: 50%;
+                border: 2px solid red;
+                cursor: pointer;
+
+                span {
+                    background-color: red;
+                    display: inline-block;
+
+                    &:first-child {
+                        height: 2px;
+                        transform: translate(1px, 0px) rotate(0deg);
+                        width: 16px;
+                    }
+
+                    // &:nth-child(2) {
+                    //     height: 16px;
+                    //     transform: translateX(-8px) rotate(0deg);
+                    //     width: 2px;
+                    // }
                 }
 
                 &:hover {

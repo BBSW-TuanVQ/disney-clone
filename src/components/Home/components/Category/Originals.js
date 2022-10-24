@@ -9,7 +9,7 @@ function Originals() {
 
   return (
     <div className={`${styles.container}`}>
-      <h4>New Disney</h4>
+      <h4>Originals</h4>
       <div className={`${styles.content}`}>
         {movies &&
           movies.map((movie, key) => {

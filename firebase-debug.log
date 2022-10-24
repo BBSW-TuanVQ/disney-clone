@@ -1,0 +1,30 @@
+[debug] [2022-10-20T09:05:44.937Z] ----------------------------------------------------------------------
+[debug] [2022-10-20T09:05:44.939Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Admin\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2022-10-20T09:05:44.939Z] CLI Version:   11.13.0
+[debug] [2022-10-20T09:05:44.939Z] Platform:      win32
+[debug] [2022-10-20T09:05:44.940Z] Node Version:  v16.17.0
+[debug] [2022-10-20T09:05:44.940Z] Time:          Thu Oct 20 2022 16:05:44 GMT+0700 (Indochina Time)
+[debug] [2022-10-20T09:05:44.941Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-10-20T09:05:44.999Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-10-20T09:05:44.999Z] > authorizing via signed-in user (vuquytuan2706@gmail.com)
+[debug] [2022-10-20T09:05:44.999Z] [iam] checking project disneyplus-clone-9a855 for permissions ["firebase.projects.get"]
+[debug] [2022-10-20T09:05:45.001Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/disneyplus-clone-9a855:testIamPermissions [none]
+[debug] [2022-10-20T09:05:45.002Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/disneyplus-clone-9a855:testIamPermissions x-goog-quota-user=projects/disneyplus-clone-9a855
+[debug] [2022-10-20T09:05:45.002Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/disneyplus-clone-9a855:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2022-10-20T09:05:45.958Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/disneyplus-clone-9a855:testIamPermissions 200
+[debug] [2022-10-20T09:05:45.959Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/disneyplus-clone-9a855:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2022-10-20T09:05:45.962Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/disneyplus-clone-9a855 [none]
+[debug] [2022-10-20T09:05:46.342Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/disneyplus-clone-9a855 200
+[debug] [2022-10-20T09:05:46.342Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/disneyplus-clone-9a855 {"projectId":"disneyplus-clone-9a855","projectNumber":"763753225346","displayName":"disneyplus-clone","name":"projects/disneyplus-clone-9a855","resources":{"hostingSite":"disneyplus-clone-9a855","storageBucket":"disneyplus-clone-9a855.appspot.com","locationId":"us-central"},"state":"ACTIVE","etag":"1_f07c857a-d128-4bad-9c9f-1c26fec99c92"}
+[info] 
+[info] === Serving from 'D:\Project\youtube-disney-clone'...
+[info] 
+[debug] [2022-10-20T09:05:46.346Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/disneyplus-clone-9a855/sites 
+[debug] [2022-10-20T09:05:46.891Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/disneyplus-clone-9a855/sites 200
+[debug] [2022-10-20T09:05:46.892Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/disneyplus-clone-9a855/sites {"sites":[{"name":"projects/disneyplus-clone-9a855/sites/disneyplus-clone-9a855","defaultUrl":"https://disneyplus-clone-9a855.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2022-10-20T09:05:46.892Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/disneyplus-clone-9a855/webApps/-/config [none]
+[debug] [2022-10-20T09:05:47.994Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/disneyplus-clone-9a855/webApps/-/config 200
+[debug] [2022-10-20T09:05:47.995Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/disneyplus-clone-9a855/webApps/-/config {"projectId":"disneyplus-clone-9a855","appId":"1:763753225346:web:36a90d54d0ac505e2ce89b","storageBucket":"disneyplus-clone-9a855.appspot.com","locationId":"us-central","apiKey":"AIzaSyA8UiGOEOhHsHJwmxRoFTFK_i_d4ar-7KM","authDomain":"disneyplus-clone-9a855.firebaseapp.com","messagingSenderId":"763753225346","measurementId":"G-LQGPWG2TZY"}
+[info] i  hosting: Serving hosting files from: build {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mbuild\u001b[22m"}}
+[info] +  hosting: Local server: http://localhost:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://localhost:5000\u001b[22m\u001b[24m"}}
